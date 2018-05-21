@@ -35,6 +35,12 @@ def create_app(test_config=None):
     
     from . import appart
     app.register_blueprint(appart.bp, url_prefix='/appartements')
+
+    from . import proprio
+    app.register_blueprint(proprio.bp, url_prefix='/proprietaire')
+
+    from . import ville
+    app.register_blueprint(ville.bp, url_prefix='/ville')
     
 
     return app

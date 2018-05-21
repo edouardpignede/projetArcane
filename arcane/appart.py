@@ -106,4 +106,4 @@ def delete_appartement(id):
         'DELETE FROM appartement WHERE id = ?', (id)
     )
     db.commit()
-    return 'delete'
+    return to_json(delete)
