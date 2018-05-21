@@ -34,7 +34,7 @@ def create_app(test_config=None):
 
     
     from . import appart
-    app.register_blueprint(appart.bp)
+    app.register_blueprint(appart.bp, url_prefix='/appartements')
     
 
     return app

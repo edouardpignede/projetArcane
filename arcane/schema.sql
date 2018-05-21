@@ -12,14 +12,14 @@ CREATE TABLE proprietaire (
 CREATE TABLE appartement (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   proprietaire_id INTEGER NOT NULL,
-  appartement_id INTEGER NOT NULL,
+  ville_id INTEGER NOT NULL,
   nom TEXT UNIQUE NOT NULL,
   description_appart TEXT,
   type_de_bien TEXT,
-  ville TEXT,
-  pieces TEXT,
+  nombre_de_chambres INTEGER,
+  surface FLOAT,
   FOREIGN KEY (proprietaire_id) REFERENCES proprietaire (id),
-  FOREIGN KEY (appartement_id) REFERENCES ville (id)
+  FOREIGN KEY (ville_id) REFERENCES ville (id)
 );
 
 CREATE TABLE ville (
@@ -39,3 +39,9 @@ INSERT INTO proprietaire VALUES (1, 'François Martin', 24, 'intermitant du spec
 INSERT INTO proprietaire VALUES (2, 'Jean Dupont', 45, 'Couturier');
 INSERT INTO proprietaire VALUES (3, 'Noëlle Denis', 38, 'Femme de ménage');
 INSERT INTO proprietaire VALUES (4, 'Julien Franck', 38, 'PDG de Danone' );
+
+INSERT INTO appartement VALUES (1, 1, 1, 'Le cairn', 'Grand appartement dans le centre', 'Appartement', 3, 60);
+INSERT INTO appartement VALUES (2, 1, 1, 'A langlès', 'Studio en périphérie', 'Appartement', 1, 25);
+INSERT INTO appartement VALUES (3, 3, 4, 'La clé des Champs', 'Maison avec jardin', 'Maison', 3, 150);
+INSERT INTO appartement VALUES (4, 4, 2, 'Cesal', 'Grande maison', 'Maison', 5, 320);
+INSERT INTO appartement VALUES (5, 2, 3, 'Loiselet', 'Appartement dans le centre', 'Appartement', 2, 90);
